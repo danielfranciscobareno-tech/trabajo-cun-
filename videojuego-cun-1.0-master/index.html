@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameTournament | Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-gamepad"></i></div>
+        <div>
+          <div class="brand-name">GAME<span>TOURNAMENT</span></div>
+          <small>PLAY. COMPETE. WIN.</small>
+        </div>
+      </div>
+
+      <nav class="nav flex-column mt-4">
+        <a class="nav-link active" href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a class="nav-link" href="#torneos"><i class="fa-solid fa-trophy"></i> Torneos</a>
+        <a class="nav-link" href="#equipos"><i class="fa-solid fa-users"></i> Equipos</a>
+        <a class="nav-link" href="#enfrentamientos"><i class="fa-solid fa-bolt"></i> Enfrentamientos</a>
+        <a class="nav-link" href="#resultados"><i class="fa-solid fa-table-list"></i> Resultados</a>
+        <a class="nav-link" href="#clasificaciones"><i class="fa-solid fa-ranking-star"></i> Clasificaciones</a>
+        <a class="nav-link" href="#estadisticas"><i class="fa-solid fa-chart-simple"></i> Estadísticas</a>
+        <a class="nav-link" href="#historial"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+        <a class="nav-link" href="#perfil"><i class="fa-solid fa-user"></i> Perfil</a>
+        <a class="nav-link" href="#configuracion"><i class="fa-solid fa-gear"></i> Configuración</a>
+      </nav>
+
+      <button class="btn logout-btn mt-auto" id="logoutBtn">
+        <i class="fa-solid fa-right-to-bracket me-2"></i><span>Iniciar sesión</span>
+      </button>
+    </aside>
+
+    <main class="main-content" id="inicio">
+      <header class="topbar">
+        <button class="btn mobile-toggle d-lg-none" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input id="searchInput" type="search" placeholder="Buscar torneos, equipos o jugadores...">
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" title="Notificaciones"><i class="fa-regular fa-bell"></i><span>2</span></button>
+          <button class="icon-btn" title="Mensajes"><i class="fa-regular fa-envelope"></i></button>
+          <div class="profile-mini" id="profileContainer" style="cursor: pointer;">
+            <div class="avatar" id="userAvatar">G</div>
+            <div class="d-none d-md-block">
+              <strong id="userName">Invitado</strong>
+              <small id="userLevel">Sin sesión</small>
+            </div>
+            <i class="fa-solid fa-chevron-down ms-2"></i>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-container">
+        <section class="hero-panel mb-4">
+          <div class="hero-copy">
+            <p class="eyebrow">PLATAFORMA GAMER</p>
+            <h1>COMPITE. GANA. <span>SÉ LEYENDA.</span></h1>
+            <p class="lead">La plataforma definitiva para torneos de videojuegos online.</p>
+            <a class="btn btn-primary-glow" href="#torneos">VER TORNEOS</a>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orb orb-blue"></div>
+            <div class="orb orb-purple"></div>
+            <i class="fa-solid fa-shield-halved shield-art"></i>
+            <i class="fa-solid fa-gamepad game-art"></i>
+            <i class="fa-solid fa-trophy trophy-art"></i>
+          </div>
+        </section>
+
+        <section class="row g-3" id="enfrentamientos">
+          <div class="col-12 col-xl-4">
+            <div class="panel-card h-100">
+              <div class="section-title"><h2>PRÓXIMO ENFRENTAMIENTO</h2><a href="#resultados">Ver todos</a></div>
+              <div class="matchup">
+                <div class="team">
+                  <div class="team-logo wolf">SW</div>
+                  <strong>Storm Warriors</strong>
+                </div>
+                <div class="vs-block"><b>VS</b><small>05/10/2026 · 20:00</small></div>
+                <div class="team">
+                  <div class="team-logo phoenix">RP</div>
+                  <strong>Red Phoenix</strong>
+                </div>
+              </div>
+              <div class="match-footer"><span><i class="fa-solid fa-gamepad"></i> Valorant</span><span class="live-dot">Programado</span></div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-4" id="historial">
+            <div class="panel-card h-100">
+              <div class="section-title"><h2>HISTORIAL RECIENTE</h2><a href="#resultados">Ver historial</a></div>
+              <div class="history-list" id="historyList"></div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-4" id="estadisticas">
+            <div class="panel-card h-100">
+              <div class="section-title"><h2>ESTADÍSTICAS</h2></div>
+              <div class="stat-grid">
+                <div class="stat-card"><span>Victorias</span><strong id="wins">--</strong><i class="fa-solid fa-arrow-trend-up"></i></div>
+                <div class="stat-card"><span>Derrotas</span><strong id="losses">--</strong><i class="fa-solid fa-xmark"></i></div>
+                <div class="stat-card"><span>Partidas jugadas</span><strong id="played">--</strong><i class="fa-solid fa-users"></i></div>
+                <div class="stat-card"><span>Win Rate</span><strong id="winRate">--</strong><i class="fa-solid fa-chart-line"></i></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="row g-3 mt-1" id="clasificaciones">
+          <div class="col-12 col-xl-7">
+            <div class="panel-card">
+              <div class="section-title"><h2>CLASIFICACIÓN ACTUAL</h2><a href="#equipos">Ver clasificación</a></div>
+              <div class="rank-highlight">
+                <div class="rank-icon"><i class="fa-solid fa-trophy"></i></div>
+                <div><small>RANGO DEL JUGADOR</small><h3>Platino III</h3><strong>1,250 PTS</strong></div>
+              </div>
+              <div class="ranking-list" id="rankingList"></div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-5" id="equipos">
+            <div class="panel-card h-100">
+              <div class="section-title"><h2>TUS ESTADÍSTICAS</h2><select id="gameFilter"><option>Todos los juegos</option><option>Valorant</option><option>CS:GO</option><option>League of Legends</option></select></div>
+              <div class="player-stats">
+                <div class="donut"><div><strong id="donutRate">70%</strong><span>Win Rate</span></div></div>
+                <div class="metric-list">
+                  <div><span>Kills</span><b>620</b></div>
+                  <div><span>Muertes</span><b>310</b></div>
+                  <div><span>K/D Ratio</span><b>2.00</b></div>
+                  <div><span>Asistencias</span><b>150</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel-card mt-3" id="torneos">
+          <div class="section-title"><h2>TORNEOS DESTACADOS</h2><button class="btn btn-sm btn-outline-light" id="refreshBtn">Actualizar</button></div>
+          <div class="row g-3" id="tournamentGrid"></div>
+        </section>
+
+        <section id="resultados" class="mt-3 text-secondary small pb-4">
+          Plataforma configurada con Firebase Authentication y Firestore Database.
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal de Login / Registro -->
+  <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-white" style="background: var(--panel); border: 1px solid var(--purple);">
+        <div class="modal-header border-bottom-0 pb-0">
+          <h5 class="modal-title font-weight-bold" id="authModalTitle">Iniciar Sesión</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="authForm">
+            <div class="mb-3 d-none" id="usernameGroup">
+              <label class="form-label small text-muted">Nombre de Usuario / Gamertag</label>
+              <input type="text" class="form-control bg-dark text-white border-secondary" id="authUsername" placeholder="PlayerOne">
+            </div>
+            <div class="mb-3">
+              <label class="form-label small text-muted">Correo electrónico</label>
+              <input type="email" class="form-control bg-dark text-white border-secondary" id="authEmail" placeholder="usuario@correo.com" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small text-muted">Contraseña</label>
+              <input type="password" class="form-control bg-dark text-white border-secondary" id="authPassword" placeholder="••••••••" required>
+            </div>
+            <div class="text-danger small mb-3 d-none" id="authError"></div>
+            <button type="submit" class="btn btn-primary-glow w-100 mb-2" id="authSubmitBtn">Ingresar</button>
+          </form>
+          <div class="text-center mt-3">
+            <small class="text-muted" id="authToggleText">¿No tienes una cuenta? <a href="#" id="authToggleBtn" class="text-purple fw-bold">Regístrate aquí</a></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="appToast" class="toast" role="alert">
+      <div class="toast-body" id="toastMessage">Acción realizada.</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+  <script type="module" src="js/firebase.js"></script>
+</body>
+</html>
